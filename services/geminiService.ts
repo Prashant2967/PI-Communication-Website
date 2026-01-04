@@ -1,13 +1,11 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { BrandInsightResponse } from "../types";
 
-const apiKey = process.env.API_KEY || '';
-
 export const generateBrandInsights = async (
   businessName: string,
   businessType: string
 ): Promise<BrandInsightResponse> => {
-  if (!apiKey) {
+  if (!process.env.API_KEY) {
     // Return a mock response if no API key is present to prevent app crash in preview without keys
     console.warn("No API_KEY found. Returning mock data.");
     return new Promise((resolve) => {
@@ -25,7 +23,7 @@ export const generateBrandInsights = async (
     });
   }
 
-  const ai = new GoogleGenAI({ apiKey });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   try {
     const prompt = `
