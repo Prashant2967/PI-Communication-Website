@@ -48,9 +48,9 @@ const defaultContent: SiteContent = {
     }
   ],
   contact: {
-    email: "hello@picommunication.com",
-    phone: "+91 98765 43210",
-    address: "Raipur, Chhattisgarh"
+    email: "mayank@picommunication.com",
+    phone: "+91 82230 69997",
+    address: "Near Anandam world city, kachna, raipur (CG) - 492001"
   }
 };
 
