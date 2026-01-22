@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PI Communication | Brand Creation & Marketing</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
-              serif: ['Playfair Display', 'serif'],
+              display: ['Space Grotesk', 'sans-serif'], // More "editorial/ad" feeling than Playfair
             },
             colors: {
               brand: {
-                dark: '#0f172a',
-                accent: '#FACC15', // Vibrant Yellow (Yellow-400)
-                light: '#f8fafc',
+                black: '#121212',
+                white: '#FFFFFF',
+                accent: '#FACC15', // Vibrant Yellow
+                gray: '#F3F4F6',
               }
             }
           }
@@ -31,17 +32,21 @@
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #0f172a; 
+        background: #FFFFFF; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155; 
+        background: #e5e7eb; 
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #475569; 
+        background: #d1d5db; 
       }
       html {
         scroll-behavior: smooth;
+      }
+      .text-stroke {
+        -webkit-text-stroke: 1px #000;
+        color: transparent;
       }
     </style>
   <script type="importmap">
@@ -58,7 +63,7 @@
 }
 </script>
 </head>
-  <body class="bg-brand-dark text-slate-200 antialiased selection:bg-brand-accent selection:text-brand-dark">
+  <body class="bg-brand-white text-brand-black antialiased selection:bg-brand-accent selection:text-brand-black">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

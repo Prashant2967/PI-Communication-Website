@@ -4,55 +4,53 @@ import { SiteContent, Enquiry, ServiceCategory } from '../types';
 // Default Data with "Offline" moved above "Digital" and relevant images
 const defaultContent: SiteContent = {
   hero: {
-    title: "We Build Brands That Last.",
-    subtitle: "Scaling brands from Zero to One",
-    description: "PI Communication is a full-service agency dedicated to crafting compelling identities and executing precision marketing strategies. From offline roots to digital heights, we handle it all.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+    title: "IGNORE THE NOISE.",
+    subtitle: "We build brands people actually remember.",
+    description: "PI Communication is an idea-first studio. We don't just sell services; we architect culture. From the streets to the screens, we make you impossible to ignore.",
+    image: "https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&q=80&w=1600"
   },
   about: {
-    title: "More Than Just An Agency. We Are Brand Architects.",
-    description: "At PI Communication, we believe every business has a unique story waiting to be told. We don't just sell services; we build identities. From the initial spark of a logo to the widespread reach of a billboard or a viral social campaign, we are with you at every step.",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
+    title: "Small Team.\nDangerous Ideas.",
+    description: "Most agencies are factories. We are a lab. We believe that a single strong idea is worth more than a thousand mediocre ads. We strip away the corporate fluff to find the raw truth of your business, then we amplify it until the world listens.",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600",
     checklist: [
-      "End-to-End Brand Management",
-      "Data-Driven Digital Strategies",
-      "High-Impact Offline Presence",
-      "Dedicated Growth Partners"
+      "No Filler",
+      "No Middlemen",
+      "Pure Impact"
     ]
   },
   services: [
     {
-      title: "Brand Strategy & Identity",
-      description: "We define your voice and visualize your values to create a lasting impression.",
+      title: "The Physical World",
+      description: "Tangible, undeniable, and right in their face.",
       items: [
-        { title: "Brand Identity", description: "Logo, Typography, Color Palette", iconKey: "PenTool" },
-        { title: "Strategy Creation", description: "Market Research, Positioning, Voice", iconKey: "Map" },
+        { title: "OOH & Billboards", description: "Dominating the skyline.", iconKey: "Map" },
+        { title: "Transit Media", description: "Moving your message.", iconKey: "Truck" },
+        { title: "Print & Guerrilla", description: "Tactile brand experiences.", iconKey: "Printer" },
       ]
     },
     {
-      title: "Offline / On-Ground",
-      description: "Tangible marketing that reaches people where they are.",
+      title: "Strategy & Identity",
+      description: "The brain before the beauty.",
       items: [
-        { title: "Road Advertisements", description: "Billboards & Hoardings", iconKey: "Map" },
-        { title: "Transit Media", description: "Auto Rickshaw & Railway Ads", iconKey: "Truck" },
-        { title: "Print Promotions", description: "Pamphlets & Flyers", iconKey: "Printer" },
+        { title: "Brand Identity", description: "Visual language that speaks.", iconKey: "PenTool" },
+        { title: "Positioning", description: "Finding your blue ocean.", iconKey: "Map" },
       ]
     },
     {
-      title: "Digital Marketing",
-      description: "Data-driven strategies to dominate the digital landscape.",
+      title: "The Digital Space",
+      description: "Where conversation happens.",
       items: [
-        { title: "SEO", description: "Ranking high on search engines", iconKey: "TrendingUp" },
-        { title: "Website Building", description: "High-performance, responsive sites", iconKey: "Globe" },
-        { title: "Social Media", description: "Community management & growth", iconKey: "Layout" },
-        { title: "Performance Marketing", description: "Paid ads that convert", iconKey: "Megaphone" },
+        { title: "Performance", description: "Ads that actually convert.", iconKey: "Megaphone" },
+        { title: "Web Experiences", description: "Digital flagships.", iconKey: "Globe" },
+        { title: "Social Culture", description: "Building communities.", iconKey: "Layout" },
       ]
     }
   ],
   contact: {
     email: "hello@picommunication.com",
     phone: "+91 98765 43210",
-    address: "123 Creative Tower, Tech Hub District, Mumbai, India"
+    address: "123 Creative Tower, Mumbai"
   }
 };
 

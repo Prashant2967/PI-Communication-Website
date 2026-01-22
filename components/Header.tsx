@@ -13,16 +13,15 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { label: 'Home', id: SectionId.HOME },
-    { label: 'Services', id: SectionId.SERVICES },
-    { label: 'About', id: SectionId.ABOUT },
+    { label: 'Work', id: SectionId.SERVICES },
+    { label: 'Philosophy', id: SectionId.ABOUT },
     { label: 'AI Strategy', id: SectionId.AI_TOOLS },
     { label: 'Contact', id: SectionId.CONTACT },
   ];
@@ -34,33 +33,32 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-brand-dark/90 backdrop-blur-md shadow-lg py-4' : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'bg-white/90 backdrop-blur-md py-4 border-b border-black/5' : 'bg-transparent py-8'
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
         <div 
             onClick={() => handleNavClick(SectionId.HOME)}
-            className="flex items-center space-x-2 cursor-pointer group"
+            className="flex items-center space-x-3 cursor-pointer group z-50"
         >
-          <div className="relative">
-            <Hexagon className="w-8 h-8 text-brand-accent group-hover:rotate-90 transition-transform duration-500 drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]" strokeWidth={2.5} />
-            <span className="absolute inset-0 flex items-center justify-center font-bold text-xs text-brand-dark">PI</span>
+          <div className="w-10 h-10 bg-brand-black text-brand-accent flex items-center justify-center font-display font-bold text-xl group-hover:bg-brand-accent group-hover:text-black transition-colors duration-300">
+            PI
           </div>
-          <span className="text-xl font-bold tracking-tight font-serif text-white group-hover:text-brand-accent transition-colors">
-            PI <span className="text-brand-accent">Communication</span>
+          <span className={`text-xl font-bold font-display tracking-tight transition-colors ${isMobileMenuOpen ? 'text-black' : 'text-black'}`}>
+            Communication
           </span>
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-12">
           {navLinks.map((link) => (
             <button
               key={link.id}
               onClick={() => handleNavClick(link.id)}
-              className={`text-sm font-medium transition-all duration-300 hover:text-brand-accent hover:scale-105 ${
-                activeSection === link.id ? 'text-brand-accent drop-shadow-[0_0_5px_rgba(250,204,21,0.5)]' : 'text-slate-300'
+              className={`text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:text-brand-accent ${
+                activeSection === link.id ? 'text-black decoration-brand-accent underline underline-offset-8 decoration-4' : 'text-gray-500'
               }`}
             >
               {link.label}
@@ -70,29 +68,27 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-black focus:outline-none z-50"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X /> : <Menu />}
+          {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </div>
 
       {/* Mobile Nav Overlay */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-brand-dark border-t border-slate-800 p-6 flex flex-col space-y-4 shadow-2xl">
-          {navLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => handleNavClick(link.id)}
-              className={`text-left text-lg font-medium ${
-                activeSection === link.id ? 'text-brand-accent' : 'text-slate-300'
-              }`}
-            >
-              {link.label}
-            </button>
-          ))}
-        </div>
-      )}
+      <div className={`fixed inset-0 bg-white z-40 flex flex-col justify-center px-12 transition-transform duration-500 ease-in-out md:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="flex flex-col space-y-8">
+            {navLinks.map((link) => (
+                <button
+                key={link.id}
+                onClick={() => handleNavClick(link.id)}
+                className="text-left text-5xl font-display font-bold text-black hover:text-brand-accent transition-colors"
+                >
+                {link.label}
+                </button>
+            ))}
+          </div>
+      </div>
     </header>
   );
 };

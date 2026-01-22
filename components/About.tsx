@@ -1,6 +1,5 @@
 import React from 'react';
 import { SectionId } from '../types';
-import { CheckCircle2 } from 'lucide-react';
 import { useContent } from '../contexts/ContentContext';
 
 const About: React.FC = () => {
@@ -8,39 +7,37 @@ const About: React.FC = () => {
   const { about } = content;
 
   return (
-    <section id={SectionId.ABOUT} className="py-24 bg-brand-dark">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          
-          <div className="md:w-1/2 relative">
-             <div className="absolute -inset-4 bg-gradient-to-r from-brand-accent to-purple-600 rounded-2xl opacity-20 blur-lg"></div>
-             <img 
-                src={about.image}
-                alt="Our Team" 
-                className="relative rounded-2xl shadow-2xl border border-slate-700 w-full object-cover max-h-[500px]"
-             />
-             <div className="absolute -bottom-6 -right-6 bg-slate-800 p-6 rounded-xl border border-slate-600 shadow-xl hidden md:block">
-                <p className="text-4xl font-bold text-brand-accent">5+</p>
-                <p className="text-sm text-slate-300">Years of Excellence</p>
-             </div>
-          </div>
+    <section id={SectionId.ABOUT} className="py-32 bg-brand-black text-white relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-accent/5 pointer-events-none"></div>
 
-          <div className="md:w-1/2">
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-6 whitespace-pre-line">
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          
+          <div>
+             <h2 className="text-5xl md:text-7xl font-display font-bold mb-12 whitespace-pre-line leading-none tracking-tight">
               {about.title}
             </h2>
-            <p className="text-slate-400 text-lg mb-6 leading-relaxed">
+            <div className="h-1 w-20 bg-brand-accent mb-12"></div>
+            <p className="text-2xl text-gray-300 font-light leading-relaxed mb-12">
               {about.description}
             </p>
             
-            <div className="space-y-4">
+            <div className="flex flex-wrap gap-4">
                 {about.checklist.map((item, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                        <CheckCircle2 className="w-5 h-5 text-brand-accent" />
-                        <span className="text-slate-200">{item}</span>
-                    </div>
+                    <span key={index} className="px-6 py-3 border border-white/20 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all cursor-default">
+                        {item}
+                    </span>
                 ))}
             </div>
+          </div>
+
+          <div className="relative">
+             <div className="absolute top-4 -right-4 w-full h-full border-2 border-brand-accent z-0"></div>
+             <img 
+                src={about.image}
+                alt="Philosophy" 
+                className="relative z-10 w-full h-[600px] object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+             />
           </div>
 
         </div>
