@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useContent } from '../contexts/ContentContext';
-import { Lock, LogOut, Save, RotateCcw, Trash2, Mail, Layout, Type, Image as ImageIcon } from 'lucide-react';
+import { Lock, LogOut, Save, RotateCcw, Trash2, Mail, Layout, Type, Phone, Briefcase } from 'lucide-react';
 import { SiteContent } from '../types';
 
 interface AdminProps {
@@ -216,23 +216,36 @@ const Admin: React.FC<AdminProps> = ({ onLogout }) => {
                  <div className="grid gap-4">
                      {enquiries.map((enquiry) => (
                          <div key={enquiry.id} className="bg-slate-800 p-6 rounded-xl border border-slate-700 relative group">
-                             <div className="flex justify-between items-start mb-4">
+                             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
                                  <div>
-                                     <h3 className="font-bold text-lg text-white">{enquiry.name}</h3>
-                                     <a href={`mailto:${enquiry.email}`} className="text-brand-accent text-sm hover:underline">{enquiry.email}</a>
-                                     <span className="text-slate-500 text-xs block mt-1">{enquiry.date}</span>
+                                     <h3 className="font-bold text-lg text-white flex items-center gap-2">
+                                         {enquiry.name}
+                                         <span className="text-xs font-normal bg-brand-accent/20 text-brand-accent px-2 py-0.5 rounded-full border border-brand-accent/30">
+                                            {enquiry.serviceType || 'General'}
+                                         </span>
+                                     </h3>
+                                     <div className="flex items-center gap-4 mt-1">
+                                         <a href={`tel:${enquiry.mobile}`} className="text-slate-300 text-sm hover:text-brand-accent flex items-center gap-1">
+                                            <Phone size={14} />
+                                            {enquiry.mobile}
+                                         </a>
+                                         <span className="text-slate-500 text-xs">{enquiry.date}</span>
+                                     </div>
                                  </div>
                                  <button 
                                     onClick={() => deleteEnquiry(enquiry.id)}
-                                    className="p-2 text-slate-500 hover:text-red-400 hover:bg-slate-700 rounded-lg transition-colors"
+                                    className="p-2 text-slate-500 hover:text-red-400 hover:bg-slate-700 rounded-lg transition-colors self-end md:self-auto"
                                     title="Delete"
                                  >
                                      <Trash2 size={18} />
                                  </button>
                              </div>
-                             <p className="text-slate-300 bg-slate-900/50 p-4 rounded-lg text-sm leading-relaxed">
-                                 {enquiry.message}
-                             </p>
+                             {enquiry.message && (
+                                <p className="text-slate-300 bg-slate-900/50 p-4 rounded-lg text-sm leading-relaxed border border-slate-700/50">
+                                    <span className="block text-xs text-slate-500 mb-1 font-semibold uppercase">Message</span>
+                                    {enquiry.message}
+                                </p>
+                             )}
                          </div>
                      ))}
                  </div>

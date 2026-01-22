@@ -37,7 +37,8 @@ export interface BrandInsightResponse {
 export interface Enquiry {
   id: string;
   name: string;
-  email: string;
+  mobile: string;
+  serviceType: string;
   message: string;
   date: string;
 }
