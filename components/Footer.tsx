@@ -18,8 +18,11 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection, onAdminClick }) => {
                         PI
                     </div>
                 </div>
-                <p className="max-w-xs text-gray-500 font-medium leading-relaxed">
-                    A branding and advertising studio for the brave. Mumbai based, globally minded.
+                <p className="max-w-xs text-gray-500 font-medium leading-relaxed mb-4">
+                    A branding and advertising studio for the brave. Raipur based, globally minded.
+                </p>
+                <p className="text-brand-accent font-bold text-sm tracking-wide max-w-xs border-l-2 border-brand-accent pl-3">
+                    Serving MP, Chhattisgarh & Vidarbha.
                 </p>
             </div>
 

@@ -50,7 +50,7 @@ const defaultContent: SiteContent = {
   contact: {
     email: "hello@picommunication.com",
     phone: "+91 98765 43210",
-    address: "123 Creative Tower, Mumbai"
+    address: "Raipur, Chhattisgarh"
   }
 };
 

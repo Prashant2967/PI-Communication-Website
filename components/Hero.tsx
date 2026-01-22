@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
           
           <div className="mb-12 animate-fade-in-up">
             <span className="inline-block bg-brand-accent px-3 py-1 text-xs font-bold uppercase tracking-widest text-black mb-6">
-              Est. 2024
+              Est. 2020
             </span>
             <h1 className="text-[12vw] leading-[0.85] font-display font-bold text-brand-black tracking-tighter uppercase break-words">
               {hero.title.split(' ').map((word, i) => (
