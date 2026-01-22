@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import { SectionId } from '../types';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { useContent } from '../contexts/ContentContext';
 
 const Contact: React.FC = () => {
+  const { content, addEnquiry } = useContent();
+  const { contact } = content;
+  
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    setTimeout(() => {
-        setSubmitted(true);
-        setFormState({ name: '', email: '', message: '' });
-    }, 1000);
+    
+    // Save to context/local storage
+    addEnquiry({
+        name: formState.name,
+        email: formState.email,
+        message: formState.message
+    });
+
+    setSubmitted(true);
+    setFormState({ name: '', email: '', message: '' });
   };
 
   return (
@@ -36,7 +45,7 @@ const Contact: React.FC = () => {
                         </div>
                         <div>
                             <p className="text-sm text-slate-400">Email Us</p>
-                            <p className="text-white font-medium">hello@thepicommunication.com</p>
+                            <p className="text-white font-medium">{contact.email}</p>
                         </div>
                     </div>
 
@@ -46,7 +55,7 @@ const Contact: React.FC = () => {
                         </div>
                         <div>
                             <p className="text-sm text-slate-400">Call Us</p>
-                            <p className="text-white font-medium">+91 98765 43210</p>
+                            <p className="text-white font-medium">{contact.phone}</p>
                         </div>
                     </div>
 
@@ -56,7 +65,7 @@ const Contact: React.FC = () => {
                         </div>
                         <div>
                             <p className="text-sm text-slate-400">Visit Us</p>
-                            <p className="text-white font-medium">123 Creative Tower, Tech Hub District,<br/>Mumbai, India</p>
+                            <p className="text-white font-medium">{contact.address}</p>
                         </div>
                     </div>
                 </div>

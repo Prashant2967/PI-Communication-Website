@@ -45,11 +45,11 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
             className="flex items-center space-x-2 cursor-pointer group"
         >
           <div className="relative">
-            <Hexagon className="w-8 h-8 text-brand-accent group-hover:rotate-90 transition-transform duration-500" strokeWidth={2.5} />
+            <Hexagon className="w-8 h-8 text-brand-accent group-hover:rotate-90 transition-transform duration-500 drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]" strokeWidth={2.5} />
             <span className="absolute inset-0 flex items-center justify-center font-bold text-xs text-brand-dark">PI</span>
           </div>
-          <span className="text-xl font-bold tracking-tight font-serif text-white">
-            The PI <span className="text-brand-accent">Communication</span>
+          <span className="text-xl font-bold tracking-tight font-serif text-white group-hover:text-brand-accent transition-colors">
+            PI <span className="text-brand-accent">Communication</span>
           </span>
         </div>
 
@@ -59,8 +59,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
             <button
               key={link.id}
               onClick={() => handleNavClick(link.id)}
-              className={`text-sm font-medium transition-colors duration-200 hover:text-brand-accent ${
-                activeSection === link.id ? 'text-brand-accent' : 'text-slate-300'
+              className={`text-sm font-medium transition-all duration-300 hover:text-brand-accent hover:scale-105 ${
+                activeSection === link.id ? 'text-brand-accent drop-shadow-[0_0_5px_rgba(250,204,21,0.5)]' : 'text-slate-300'
               }`}
             >
               {link.label}

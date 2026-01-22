@@ -3,7 +3,7 @@ import React from 'react';
 export interface ServiceItem {
   title: string;
   description: string;
-  icon: React.ComponentType<any>;
+  iconKey: string; // Changed from Component to string key for storage
 }
 
 export interface ServiceCategory {
@@ -32,4 +32,33 @@ export interface BrandInsightResponse {
   slogans: string[];
   strategyTip: string;
   colorPaletteSuggestion: string[];
+}
+
+export interface Enquiry {
+  id: string;
+  name: string;
+  email: string;
+  message: string;
+  date: string;
+}
+
+export interface SiteContent {
+  hero: {
+    title: string;
+    subtitle: string;
+    description: string;
+    image: string;
+  };
+  about: {
+    title: string;
+    description: string;
+    image: string;
+    checklist: string[];
+  };
+  services: ServiceCategory[];
+  contact: {
+    email: string;
+    phone: string;
+    address: string;
+  };
 }

@@ -17,7 +17,7 @@ export const generateBrandInsights = async (
             `Your Partner in ${businessType} Success`
           ],
           strategyTip: "Focus on building a community around your core values. Authentic engagement on social platforms often yields higher ROI than broad advertising for this sector.",
-          colorPaletteSuggestion: ["#1e293b", "#3b82f6", "#f59e0b"]
+          colorPaletteSuggestion: ["#1e293b", "#3b82f6", "#FACC15"]
         });
       }, 1500);
     });
@@ -27,7 +27,7 @@ export const generateBrandInsights = async (
 
   try {
     const prompt = `
-      Act as a world-class brand strategist for "The PI Communication". 
+      Act as a world-class brand strategist for "PI Communication". 
       A user needs quick branding insights for their business.
       
       Business Name: ${businessName}
@@ -80,7 +80,7 @@ export const generateBrandInsights = async (
     return {
       slogans: ["Innovation for Tomorrow", "Quality You Can Trust", "Building Better Brands"],
       strategyTip: "Ensure your digital presence is mobile-optimized and leverage user-generated content.",
-      colorPaletteSuggestion: ["#000000", "#FFFFFF", "#FF0000"]
+      colorPaletteSuggestion: ["#000000", "#FFFFFF", "#FACC15"]
     };
   }
 };
