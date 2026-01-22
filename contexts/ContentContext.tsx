@@ -7,12 +7,14 @@ const defaultContent: SiteContent = {
     title: "IGNORE THE NOISE.",
     subtitle: "We build brands people actually remember.",
     description: "PI Communication is an idea-first studio. We don't just sell services; we architect culture. From the streets to the screens, we make you impossible to ignore.",
-    image: "https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&q=80&w=1600"
+    // Indian Street/Market vibe - Busy, chaotic, representing the 'Noise' to cut through
+    image: "https://images.unsplash.com/photo-1533000758368-6d8b02221b6e?auto=format&fit=crop&q=80&w=1600" 
   },
   about: {
     title: "Small Team.\nDangerous Ideas.",
     description: "Most agencies are factories. We are a lab. We believe that a single strong idea is worth more than a thousand mediocre ads. We strip away the corporate fluff to find the raw truth of your business, then we amplify it until the world listens.",
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600",
+    // Authentic Indian creative collaboration
+    image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&q=80&w=1600",
     checklist: [
       "No Filler",
       "No Middlemen",
@@ -75,7 +77,22 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
     const savedEnquiries = localStorage.getItem('siteEnquiries');
 
     if (savedContent) {
-      setContent(JSON.parse(savedContent));
+      // Merge saved content with default structure
+      const parsed = JSON.parse(savedContent);
+      
+      const mergedServices = defaultContent.services.map((defService, index) => {
+        const savedService = parsed.services?.[index];
+        return {
+          ...defService,
+          ...savedService,
+        };
+      });
+      
+      setContent({
+        ...defaultContent,
+        ...parsed,
+        services: mergedServices
+      });
     }
     if (savedEnquiries) {
       setEnquiries(JSON.parse(savedEnquiries));

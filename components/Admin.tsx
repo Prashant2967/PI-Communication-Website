@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useContent } from '../contexts/ContentContext';
-import { Lock, LogOut, Save, RotateCcw, Trash2, Mail, Layout, Type, Phone, Briefcase } from 'lucide-react';
+import { Lock, LogOut, Save, RotateCcw, Trash2, Mail, Layout, Type, Phone } from 'lucide-react';
 import { SiteContent } from '../types';
 
 interface AdminProps {

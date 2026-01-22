@@ -8,8 +8,7 @@ import {
   Truck, 
   Printer, 
   Layout,
-  LucideIcon,
-  ArrowRight
+  LucideIcon
 } from 'lucide-react';
 import { SectionId } from '../types';
 import { useContent } from '../contexts/ContentContext';
@@ -37,34 +36,35 @@ const Services: React.FC = () => {
         <div className="space-y-0">
             {services.map((category, catIndex) => (
                 <div key={catIndex} className="group border-t border-black/10 py-16 hover:bg-gray-50 transition-colors">
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                         {/* Number */}
-                        <div className="col-span-1 md:col-span-1 text-sm font-bold text-gray-400 font-mono">
+                        <div className="col-span-1 lg:col-span-1 text-sm font-bold text-gray-400 font-mono pt-2">
                             0{catIndex + 1}
                         </div>
                         
-                        {/* Title */}
-                        <div className="col-span-1 md:col-span-4">
-                            <h3 className="text-4xl font-display font-bold text-black mb-2">{category.title}</h3>
-                            <p className="text-gray-500">{category.description}</p>
-                        </div>
+                        {/* Content */}
+                        <div className="col-span-1 lg:col-span-11 grid grid-cols-1 md:grid-cols-12 gap-8">
+                            <div className="md:col-span-4">
+                                <h3 className="text-4xl font-display font-bold text-black mb-4">{category.title}</h3>
+                                <p className="text-gray-500 text-lg">{category.description}</p>
+                            </div>
 
-                        {/* Items List */}
-                        <div className="col-span-1 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                            {category.items.map((item, index) => {
-                                const Icon = iconMap[item.iconKey] || Layout;
-                                return (
-                                    <div key={index} className="flex items-start gap-4">
-                                        <div className="mt-1 text-brand-accent">
-                                            <Icon size={20} />
+                            <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
+                                {category.items.map((item, index) => {
+                                    const Icon = iconMap[item.iconKey] || Layout;
+                                    return (
+                                        <div key={index} className="flex items-start gap-4">
+                                            <div className="mt-1 text-brand-accent shrink-0">
+                                                <Icon size={24} />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-lg text-black">{item.title}</h4>
+                                                <p className="text-sm text-gray-500 leading-relaxed mt-1">{item.description}</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h4 className="font-bold text-lg text-black">{item.title}</h4>
-                                            <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>
